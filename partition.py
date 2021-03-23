@@ -1,6 +1,16 @@
 # https://afteracademy.com/blog/partition-equal-subset-sum
+
+
+# O(2^N)
 def check(arr):
-    return partition(arr)
+    if len(arr) == 0:
+        return False
+    sum = 0
+    for elem in arr:
+        sum += elem
+    if sum % 2 != 0:
+        return False
+    return is_contain_subset_of_sum(arr, sum / 2)
 
 
 def is_contain_subset_of_sum(arr, wanted_sum):
@@ -14,14 +24,3 @@ def is_contain_subset_of_sum(arr, wanted_sum):
     if without_first:
         return True
     return False
-
-
-def partition(arr):
-    if len(arr) == 0:
-        return False
-    sum = 0
-    for elem in arr:
-        sum += elem
-    if sum % 2 != 0:
-        return False
-    return is_contain_subset_of_sum(arr, sum / 2)
