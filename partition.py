@@ -2,7 +2,7 @@
 
 
 # O(2^N)
-def check(arr):
+def brute_force(arr):
     if len(arr) == 0:
         return False
     sum = 0
